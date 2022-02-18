@@ -1,7 +1,8 @@
 package com.wutsi.platform.cart
 
+import com.wutsi.platform.cart.dto.AddProductRequest
 import com.wutsi.platform.cart.dto.GetCartResponse
-import com.wutsi.platform.cart.dto.SaveProductRequest
+import com.wutsi.platform.cart.dto.UpdateProductRequest
 import feign.Headers
 import feign.Param
 import feign.RequestLine
@@ -13,16 +14,20 @@ public interface WutsiCartApi {
   @Headers(value=["Content-Type: application/json"])
   public fun getCart(@Param("merchant-id") merchantId: Long): GetCartResponse
 
-  @RequestLine("DELETE /v1/carts/{merchant-id}")
+  @RequestLine("POST /v1/carts/{merchant-id}/products")
+  @Headers(value=["Content-Type: application/json"])
+  public fun addProduct(@Param("merchant-id") merchantId: Long, request: AddProductRequest): Unit
+
+  @RequestLine("DELETE /v1/carts/{merchant-id}/products")
   @Headers(value=["Content-Type: application/json"])
   public fun emptyCart(@Param("merchant-id") merchantId: Long): Unit
 
   @RequestLine("POST /v1/carts/{merchant-id}/products/{product-id}")
   @Headers(value=["Content-Type: application/json"])
-  public fun saveProduct(
+  public fun updateProduct(
     @Param("merchant-id") merchantId: Long,
     @Param("product-id") productId: Long,
-    request: SaveProductRequest
+    request: UpdateProductRequest
   ): Unit
 
   @RequestLine("DELETE /v1/carts/{merchant-id}/products/{product-id}")
