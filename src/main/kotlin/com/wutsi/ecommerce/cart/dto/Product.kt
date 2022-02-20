@@ -1,4 +1,4 @@
-package com.wutsi.platform.cart.dto
+package com.wutsi.ecommerce.cart.dto
 
 import java.time.OffsetDateTime
 import kotlin.Int

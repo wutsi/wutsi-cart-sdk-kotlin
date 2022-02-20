@@ -1,4 +1,4 @@
-package com.wutsi.platform.cart
+package com.wutsi.ecommerce.cart
 
 import kotlin.String
 

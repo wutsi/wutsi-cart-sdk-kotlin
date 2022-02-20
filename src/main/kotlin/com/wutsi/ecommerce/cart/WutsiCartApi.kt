@@ -1,8 +1,8 @@
-package com.wutsi.platform.cart
+package com.wutsi.ecommerce.cart
 
-import com.wutsi.platform.cart.dto.AddProductRequest
-import com.wutsi.platform.cart.dto.GetCartResponse
-import com.wutsi.platform.cart.dto.UpdateProductRequest
+import com.wutsi.ecommerce.cart.dto.AddProductRequest
+import com.wutsi.ecommerce.cart.dto.GetCartResponse
+import com.wutsi.ecommerce.cart.dto.UpdateProductRequest
 import feign.Headers
 import feign.Param
 import feign.RequestLine

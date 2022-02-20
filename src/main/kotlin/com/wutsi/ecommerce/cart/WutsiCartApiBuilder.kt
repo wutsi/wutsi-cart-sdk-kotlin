@@ -1,4 +1,4 @@
-package com.wutsi.platform.cart
+package com.wutsi.ecommerce.cart
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import feign.RequestInterceptor
