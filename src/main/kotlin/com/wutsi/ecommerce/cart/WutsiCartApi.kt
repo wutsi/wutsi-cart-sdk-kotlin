@@ -2,6 +2,8 @@ package com.wutsi.ecommerce.cart
 
 import com.wutsi.ecommerce.cart.dto.AddProductRequest
 import com.wutsi.ecommerce.cart.dto.GetCartResponse
+import com.wutsi.ecommerce.cart.dto.SearchCartRequest
+import com.wutsi.ecommerce.cart.dto.SearchCartResponse
 import com.wutsi.ecommerce.cart.dto.UpdateProductRequest
 import feign.Headers
 import feign.Param
@@ -10,6 +12,10 @@ import kotlin.Long
 import kotlin.Unit
 
 public interface WutsiCartApi {
+  @RequestLine("POST /v1/carts/search")
+  @Headers(value=["Content-Type: application/json"])
+  public fun searchCarts(request: SearchCartRequest): SearchCartResponse
+
   @RequestLine("GET /v1/carts/{merchant-id}")
   @Headers(value=["Content-Type: application/json"])
   public fun getCart(@Param("merchant-id") merchantId: Long): GetCartResponse
